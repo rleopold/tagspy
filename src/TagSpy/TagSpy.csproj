@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC75B69D-434B-4980-A93E-242A36E5D93B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TagSpy</RootNamespace>
+    <AssemblyName>TagSpy</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ElCamino.AspNet.Identity.AzureTable">
+      <HintPath>..\..\packages\ElCamino.AspNet.Identity.AzureTable.1.2.0.0\lib\net45\ElCamino.AspNet.Identity.AzureTable.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=1.3.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Serilog.1.3.43\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.FullNetFx, Version=1.3.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Serilog.1.3.43\lib\net45\Serilog.FullNetFx.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\packages\SimpleInjector.2.5.2\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Diagnostics">
+      <HintPath>..\..\packages\SimpleInjector.2.5.2\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.2.5.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.2.5.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\img\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SimpleIoC.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\TableInitializer.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\RecentMediaController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Controllers\UpdateController.cs" />
+    <Compile Include="Data\ISubscriptionRepository.cs" />
+    <Compile Include="Data\SubscriptionRepository.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hubs\HelloHub.cs" />
+    <Compile Include="Hubs\NotifyHub.cs" />
+    <Compile Include="Models\CreateGeoSub.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\RealtimeSubscription.cs" />
+    <Compile Include="Models\RegisterBindingModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\bower_components\angular-google-maps\.gitignore" />
+    <Content Include="app\bower_components\angular-google-maps\dist\angular-google-maps.js" />
+    <Content Include="app\bower_components\angular-google-maps\dist\angular-google-maps.min.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\.gitignore" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\images\blue_marker.png" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\images\cluster1.png" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\images\plane.png" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\dynamic-map-height.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\example.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\free-draw-polygons.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\geojson.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\hugedata.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-154-marker-fit.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-157-ng-click.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-322.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-354-window-windows-rerender-content.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-371-polygon-ng-repeat.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-382-window-windows-ng-show.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-393-cluster-events-mapped.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-432-markers-fit-clustering.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-482-markers-animation-clustering.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-482-markers-animation.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-484-markers-self.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-495-polyline-fit.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-498-marker-move-loaded.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-504-markers-flash.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-507-windows-show-w-marker-broken.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-522-polyline-no-paths.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-534-markers-child-destroy.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-538-window-plus1.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-545-marker-flash.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\issue-74-markers-events.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\shapes-lines.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\templates\info.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\controllers\two-maps.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\scripts\mocks\heat-layer.js" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\stylesheets\dynamic-height.css" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\stylesheets\example.css" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\stylesheets\geojson.css" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\stylesheets\hugedata.css" />
+    <Content Include="app\bower_components\angular-google-maps\example\assets\templates\info.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\dynamic-map-height.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\example.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\free-draw-polygons.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\geojson.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\hugedata.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-154-marker-fit.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-157-ng-click.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-322.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-354-window-windows-rerender-content.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-371-polygon-ng-repeat.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-382-window-windows-ng-show.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-393-cluster-events-mapped.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-432-markers-fit-clustering.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-482-markers-animation-clustering.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-482-markers-animation.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-484-markers-self.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-495-polyline-fit.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-498-marker-move-loaded.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-504-markers-flash.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-507-windows-show-w-marker-broken.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-522-polyline-no-paths.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-534-markers-child-destroy.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-538-window-plus1.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-545-marker-flash-clusterer.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-545-marker-flash.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-572-polylines-no-paths.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\issue-74-markers-events.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\shapes-lines.html" />
+    <Content Include="app\bower_components\angular-google-maps\example\two-maps.html" />
+    <Content Include="app\bower_components\angular-google-maps\lib\infobox.js" />
+    <Content Include="app\bower_components\angular-google-maps\lib\markerclusterer.js" />
+    <Content Include="app\bower_components\angular-google-maps\lib\markerwithlabel.js" />
+    <Content Include="app\bower_components\angular-google-maps\src\js\extensions\markerclusterer.js" />
+    <Content Include="app\bower_components\angular-loader\angular-loader.js" />
+    <Content Include="app\bower_components\angular-loader\angular-loader.min.js" />
+    <Content Include="app\bower_components\angular-loading-bar\build\loading-bar.css" />
+    <Content Include="app\bower_components\angular-loading-bar\build\loading-bar.js" />
+    <Content Include="app\bower_components\angular-loading-bar\build\loading-bar.min.css" />
+    <Content Include="app\bower_components\angular-loading-bar\build\loading-bar.min.js" />
+    <Content Include="app\bower_components\angular-loading-bar\Gruntfile.js" />
+    <Content Include="app\bower_components\angular-loading-bar\src\loading-bar.css" />
+    <Content Include="app\bower_components\angular-loading-bar\src\loading-bar.js" />
+    <Content Include="app\bower_components\angular-local-storage\angular-local-storage.js" />
+    <Content Include="app\bower_components\angular-local-storage\angular-local-storage.min.js" />
+    <Content Include="app\bower_components\angular-local-storage\demo\demo-app.js" />
+    <Content Include="app\bower_components\angular-local-storage\demo\demo-style.css" />
+    <Content Include="app\bower_components\angular-local-storage\demo\demo.html" />
+    <Content Include="app\bower_components\angular-local-storage\Gruntfile.js" />
+    <Content Include="app\bower_components\angular-mocks\angular-mocks.js" />
+    <Content Include="app\bower_components\angular-route\angular-route.js" />
+    <Content Include="app\bower_components\angular-route\angular-route.min.js" />
+    <Content Include="app\bower_components\angular\angular-csp.css" />
+    <Content Include="app\bower_components\angular\angular.js" />
+    <Content Include="app\bower_components\angular\angular.min.js" />
+    <Content Include="app\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="app\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="app\bower_components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="app\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="app\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\bower_components\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="app\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="app\bower_components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\bower_components\bootstrap\Gruntfile.js" />
+    <Content Include="app\bower_components\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="app\bower_components\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="app\bower_components\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="app\bower_components\bootstrap\js\affix.js" />
+    <Content Include="app\bower_components\bootstrap\js\alert.js" />
+    <Content Include="app\bower_components\bootstrap\js\button.js" />
+    <Content Include="app\bower_components\bootstrap\js\carousel.js" />
+    <Content Include="app\bower_components\bootstrap\js\collapse.js" />
+    <Content Include="app\bower_components\bootstrap\js\dropdown.js" />
+    <Content Include="app\bower_components\bootstrap\js\modal.js" />
+    <Content Include="app\bower_components\bootstrap\js\popover.js" />
+    <Content Include="app\bower_components\bootstrap\js\scrollspy.js" />
+    <Content Include="app\bower_components\bootstrap\js\tab.js" />
+    <Content Include="app\bower_components\bootstrap\js\tooltip.js" />
+    <Content Include="app\bower_components\bootstrap\js\transition.js" />
+    <Content Include="app\bower_components\html5-boilerplate\.gitattributes" />
+    <Content Include="app\bower_components\html5-boilerplate\.gitignore" />
+    <Content Include="app\bower_components\html5-boilerplate\404.html" />
+    <Content Include="app\bower_components\html5-boilerplate\apple-touch-icon-precomposed.png" />
+    <Content Include="app\bower_components\html5-boilerplate\crossdomain.xml" />
+    <Content Include="app\bower_components\html5-boilerplate\css\main.css" />
+    <Content Include="app\bower_components\html5-boilerplate\css\normalize.css" />
+    <Content Include="app\bower_components\html5-boilerplate\favicon.ico" />
+    <Content Include="app\bower_components\html5-boilerplate\humans.txt" />
+    <Content Include="app\bower_components\html5-boilerplate\img\.gitignore" />
+    <Content Include="app\bower_components\html5-boilerplate\index.html" />
+    <Content Include="app\bower_components\html5-boilerplate\js\main.js" />
+    <Content Include="app\bower_components\html5-boilerplate\js\plugins.js" />
+    <Content Include="app\bower_components\html5-boilerplate\js\vendor\jquery-1.10.2.min.js" />
+    <Content Include="app\bower_components\html5-boilerplate\js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="app\bower_components\html5-boilerplate\robots.txt" />
+    <Content Include="app\bower_components\jquery\dist\jquery.js" />
+    <Content Include="app\bower_components\jquery\dist\jquery.min.js" />
+    <Content Include="app\bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="app\bower_components\jquery\src\ajax.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\jsonp.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\load.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\parseXML.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\script.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="app\bower_components\jquery\src\ajax\xhr.js" />
+    <Content Include="app\bower_components\jquery\src\attributes.js" />
+    <Content Include="app\bower_components\jquery\src\attributes\attr.js" />
+    <Content Include="app\bower_components\jquery\src\attributes\classes.js" />
+    <Content Include="app\bower_components\jquery\src\attributes\prop.js" />
+    <Content Include="app\bower_components\jquery\src\attributes\support.js" />
+    <Content Include="app\bower_components\jquery\src\attributes\val.js" />
+    <Content Include="app\bower_components\jquery\src\callbacks.js" />
+    <Content Include="app\bower_components\jquery\src\core.js" />
+    <Content Include="app\bower_components\jquery\src\core\access.js" />
+    <Content Include="app\bower_components\jquery\src\core\init.js" />
+    <Content Include="app\bower_components\jquery\src\core\parseHTML.js" />
+    <Content Include="app\bower_components\jquery\src\core\ready.js" />
+    <Content Include="app\bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="app\bower_components\jquery\src\css.js" />
+    <Content Include="app\bower_components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="app\bower_components\jquery\src\css\curCSS.js" />
+    <Content Include="app\bower_components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="app\bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="app\bower_components\jquery\src\css\support.js" />
+    <Content Include="app\bower_components\jquery\src\css\swap.js" />
+    <Content Include="app\bower_components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="app\bower_components\jquery\src\css\var\getStyles.js" />
+    <Content Include="app\bower_components\jquery\src\css\var\isHidden.js" />
+    <Content Include="app\bower_components\jquery\src\css\var\rmargin.js" />
+    <Content Include="app\bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="app\bower_components\jquery\src\data.js" />
+    <Content Include="app\bower_components\jquery\src\data\accepts.js" />
+    <Content Include="app\bower_components\jquery\src\data\Data.js" />
+    <Content Include="app\bower_components\jquery\src\data\var\data_priv.js" />
+    <Content Include="app\bower_components\jquery\src\data\var\data_user.js" />
+    <Content Include="app\bower_components\jquery\src\deferred.js" />
+    <Content Include="app\bower_components\jquery\src\deprecated.js" />
+    <Content Include="app\bower_components\jquery\src\dimensions.js" />
+    <Content Include="app\bower_components\jquery\src\effects.js" />
+    <Content Include="app\bower_components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="app\bower_components\jquery\src\effects\Tween.js" />
+    <Content Include="app\bower_components\jquery\src\event.js" />
+    <Content Include="app\bower_components\jquery\src\event\alias.js" />
+    <Content Include="app\bower_components\jquery\src\event\support.js" />
+    <Content Include="app\bower_components\jquery\src\exports\amd.js" />
+    <Content Include="app\bower_components\jquery\src\exports\global.js" />
+    <Content Include="app\bower_components\jquery\src\intro.js" />
+    <Content Include="app\bower_components\jquery\src\jquery.js" />
+    <Content Include="app\bower_components\jquery\src\manipulation.js" />
+    <Content Include="app\bower_components\jquery\src\manipulation\support.js" />
+    <Content Include="app\bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="app\bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="app\bower_components\jquery\src\offset.js" />
+    <Content Include="app\bower_components\jquery\src\outro.js" />
+    <Content Include="app\bower_components\jquery\src\queue.js" />
+    <Content Include="app\bower_components\jquery\src\queue\delay.js" />
+    <Content Include="app\bower_components\jquery\src\selector-native.js" />
+    <Content Include="app\bower_components\jquery\src\selector-sizzle.js" />
+    <Content Include="app\bower_components\jquery\src\selector.js" />
+    <Content Include="app\bower_components\jquery\src\serialize.js" />
+    <Content Include="app\bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="app\bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="app\bower_components\jquery\src\traversing.js" />
+    <Content Include="app\bower_components\jquery\src\traversing\findFilter.js" />
+    <Content Include="app\bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="app\bower_components\jquery\src\var\arr.js" />
+    <Content Include="app\bower_components\jquery\src\var\class2type.js" />
+    <Content Include="app\bower_components\jquery\src\var\concat.js" />
+    <Content Include="app\bower_components\jquery\src\var\hasOwn.js" />
+    <Content Include="app\bower_components\jquery\src\var\indexOf.js" />
+    <Content Include="app\bower_components\jquery\src\var\pnum.js" />
+    <Content Include="app\bower_components\jquery\src\var\push.js" />
+    <Content Include="app\bower_components\jquery\src\var\rnotwhite.js" />
+    <Content Include="app\bower_components\jquery\src\var\slice.js" />
+    <Content Include="app\bower_components\jquery\src\var\strundefined.js" />
+    <Content Include="app\bower_components\jquery\src\var\support.js" />
+    <Content Include="app\bower_components\jquery\src\var\toString.js" />
+    <Content Include="app\bower_components\jquery\src\wrap.js" />
+    <Content Include="app\bower_components\lodash\dist\lodash.compat.js" />
+    <Content Include="app\bower_components\lodash\dist\lodash.compat.min.js" />
+    <Content Include="app\bower_components\lodash\dist\lodash.js" />
+    <Content Include="app\bower_components\lodash\dist\lodash.min.js" />
+    <Content Include="app\bower_components\lodash\dist\lodash.underscore.js" />
+    <Content Include="app\bower_components\lodash\dist\lodash.underscore.min.js" />
+    <Content Include="app\bower_components\lodash\LICENSE.txt" />
+    <Content Include="app\bower_components\signalr\jquery.signalR.js" />
+    <Content Include="app\bower_components\signalr\jquery.signalR.min.js" />
+    <Content Include="app\bower_components\toastr\toastr.css" />
+    <Content Include="app\bower_components\toastr\toastr.js" />
+    <Content Include="app\bower_components\toastr\toastr.min.css" />
+    <Content Include="app\bower_components\toastr\toastr.min.js" />
+    <Content Include="app\controllers\homeCtrl.js" />
+    <Content Include="app\controllers\indexCtrl.js" />
+    <Content Include="app\controllers\loginCtrl.js" />
+    <Content Include="app\controllers\manageCtrl.js" />
+    <Content Include="app\controllers\signupCtrl.js" />
+    <Content Include="app\controllers\spyCtrl.js" />
+    <Content Include="app\controllers\createCtrl.js" />
+    <Content Include="app\css\animate.css" />
+    <Content Include="app\css\app.css" />
+    <Content Include="app\index-async.html" />
+    <Content Include="app\partials\create.html" />
+    <Content Include="app\partials\home.html" />
+    <Content Include="app\partials\login.html" />
+    <Content Include="app\partials\manage.html" />
+    <Content Include="app\partials\signup.html" />
+    <Content Include="app\partials\spy.html" />
+    <Content Include="app\providers\authInterceptorService.js" />
+    <Content Include="app\providers\authService.js" />
+    <Content Include="app\providers\notificationService.js" />
+    <Content Include="app\providers\signalRHubProxy.js" />
+    <Content Include="app\providers\subscriptionService.js" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="app\bower.json" />
+    <Content Include="app\bower_components\angular-loader\.bower.json" />
+    <Content Include="app\bower_components\angular-loader\angular-loader.min.js.map" />
+    <Content Include="app\bower_components\angular-loader\bower.json" />
+    <Content Include="app\bower_components\angular-loader\README.md" />
+    <Content Include="app\bower_components\angular-mocks\.bower.json" />
+    <Content Include="app\bower_components\angular-mocks\bower.json" />
+    <Content Include="app\bower_components\angular-mocks\README.md" />
+    <Content Include="app\bower_components\angular-route\.bower.json" />
+    <Content Include="app\bower_components\angular-route\angular-route.min.js.map" />
+    <Content Include="app\bower_components\angular-route\bower.json" />
+    <Content Include="app\bower_components\angular-route\README.md" />
+    <Content Include="app\bower_components\angular\.bower.json" />
+    <Content Include="app\bower_components\angular\angular.min.js.gzip" />
+    <Content Include="app\bower_components\angular\angular.min.js.map" />
+    <Content Include="app\bower_components\angular\bower.json" />
+    <Content Include="app\bower_components\angular\README.md" />
+    <Content Include="app\bower_components\html5-boilerplate\.bower.json" />
+    <Content Include="app\bower_components\html5-boilerplate\.htaccess" />
+    <Content Include="app\bower_components\html5-boilerplate\CHANGELOG.md" />
+    <Content Include="app\bower_components\html5-boilerplate\CONTRIBUTING.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\crossdomain.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\css.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\extend.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\faq.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\html.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\js.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\misc.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\TOC.md" />
+    <Content Include="app\bower_components\html5-boilerplate\doc\usage.md" />
+    <Content Include="app\bower_components\html5-boilerplate\LICENSE.md" />
+    <Content Include="app\bower_components\html5-boilerplate\README.md" />
+    <Content Include="app\bower_components\jquery\.bower.json" />
+    <Content Include="app\bower_components\jquery\bower.json" />
+    <Content Include="app\bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="app\bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="app\bower_components\signalr\.bower.json" />
+    <Content Include="app\bower_components\signalr\bower.json" />
+    <Content Include="app\bower_components\signalr\LICENSE.md" />
+    <Content Include="app\bower_components\signalr\README.md" />
+    <Content Include="app\bower_components\bootstrap\.bower.json" />
+    <Content Include="app\bower_components\bootstrap\bower.json" />
+    <Content Include="app\bower_components\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="app\bower_components\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="app\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\bower_components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\bower_components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\bower_components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\bower_components\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="app\bower_components\bootstrap\less\alerts.less" />
+    <Content Include="app\bower_components\bootstrap\less\badges.less" />
+    <Content Include="app\bower_components\bootstrap\less\bootstrap.less" />
+    <Content Include="app\bower_components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="app\bower_components\bootstrap\less\button-groups.less" />
+    <Content Include="app\bower_components\bootstrap\less\buttons.less" />
+    <Content Include="app\bower_components\bootstrap\less\carousel.less" />
+    <Content Include="app\bower_components\bootstrap\less\close.less" />
+    <Content Include="app\bower_components\bootstrap\less\code.less" />
+    <Content Include="app\bower_components\bootstrap\less\component-animations.less" />
+    <Content Include="app\bower_components\bootstrap\less\dropdowns.less" />
+    <Content Include="app\bower_components\bootstrap\less\forms.less" />
+    <Content Include="app\bower_components\bootstrap\less\glyphicons.less" />
+    <Content Include="app\bower_components\bootstrap\less\grid.less" />
+    <Content Include="app\bower_components\bootstrap\less\input-groups.less" />
+    <Content Include="app\bower_components\bootstrap\less\jumbotron.less" />
+    <Content Include="app\bower_components\bootstrap\less\labels.less" />
+    <Content Include="app\bower_components\bootstrap\less\list-group.less" />
+    <Content Include="app\bower_components\bootstrap\less\media.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\alerts.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\buttons.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\center-block.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\forms.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\gradients.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\grid.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\image.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\labels.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\list-group.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\opacity.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\pagination.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\panels.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\resize.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\size.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\table-row.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="app\bower_components\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="app\bower_components\bootstrap\less\modals.less" />
+    <Content Include="app\bower_components\bootstrap\less\navbar.less" />
+    <Content Include="app\bower_components\bootstrap\less\navs.less" />
+    <Content Include="app\bower_components\bootstrap\less\normalize.less" />
+    <Content Include="app\bower_components\bootstrap\less\pager.less" />
+    <Content Include="app\bower_components\bootstrap\less\pagination.less" />
+    <Content Include="app\bower_components\bootstrap\less\panels.less" />
+    <Content Include="app\bower_components\bootstrap\less\popovers.less" />
+    <Content Include="app\bower_components\bootstrap\less\print.less" />
+    <Content Include="app\bower_components\bootstrap\less\progress-bars.less" />
+    <Content Include="app\bower_components\bootstrap\less\responsive-embed.less" />
+    <Content Include="app\bower_components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="app\bower_components\bootstrap\less\scaffolding.less" />
+    <Content Include="app\bower_components\bootstrap\less\tables.less" />
+    <Content Include="app\bower_components\bootstrap\less\theme.less" />
+    <Content Include="app\bower_components\bootstrap\less\thumbnails.less" />
+    <Content Include="app\bower_components\bootstrap\less\tooltip.less" />
+    <Content Include="app\bower_components\bootstrap\less\type.less" />
+    <Content Include="app\bower_components\bootstrap\less\utilities.less" />
+    <Content Include="app\bower_components\bootstrap\less\variables.less" />
+    <Content Include="app\bower_components\bootstrap\less\wells.less" />
+    <Content Include="app\bower_components\bootstrap\LICENSE" />
+    <Content Include="app\bower_components\bootstrap\package.json" />
+    <Content Include="app\bower_components\bootstrap\README.md" />
+    <Content Include="app\bower_components\angular-loading-bar\.bower.json" />
+    <Content Include="app\bower_components\angular-loading-bar\bower.json" />
+    <Content Include="app\bower_components\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="app\bower_components\angular-loading-bar\LICENSE" />
+    <Content Include="app\bower_components\angular-loading-bar\package.json" />
+    <Content Include="app\bower_components\angular-loading-bar\README.md" />
+    <Content Include="app\bower_components\angular-local-storage\.bower.json" />
+    <Content Include="app\bower_components\angular-local-storage\bower.json" />
+    <Content Include="app\bower_components\angular-local-storage\LICENSE" />
+    <Content Include="app\bower_components\angular-local-storage\package.json" />
+    <Content Include="app\bower_components\angular-local-storage\README.md" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="app\bower_components\angular-google-maps\.bower.json" />
+    <Content Include="app\bower_components\angular-google-maps\.travis.yml" />
+    <Content Include="app\bower_components\angular-google-maps\bower.json" />
+    <Content Include="app\bower_components\angular-google-maps\circle.yml" />
+    <Content Include="app\bower_components\angular-google-maps\Gruntfile.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\GruntJasmineSettings.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\GruntOptions.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\package.json" />
+    <Content Include="app\bower_components\angular-google-maps\README.markdown" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\bootstrap.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\control.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\marker.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\markers.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\child\marker-child-model.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\child\window-child-model.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\parent\i-marker-parent.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\parent\layer-parent-model.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\parent\marker-parent-model.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\parent\markers-parent-model.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\parent\markers-parent.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\models\parent\windows-parent.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\utils\base-object.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\utils\events-helper.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\utils\gmap-util.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\utils\model-key.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\utils\prop-map.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\utils\_async.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\directives\api\window.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\helpers\google-api-mock.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\helpers\google-map-spec-controller.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\usage\underscore.difference.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\usage\underscore.indexOfObject.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\usage\underscore.intersection.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\coffee\usage\underscore.isEqual.spec.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\spec\js\.keep" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\control.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\free-draw-polygons.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\i-control.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\i-label.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\i-marker.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\i-polyline.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\i-window.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\managers\clusterer-marker-manager.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\managers\marker-manager.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\map.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\marker.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\markers.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\child\free-draw-polygons-child.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\child\label-child-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\child\marker-child-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\child\polyline-child-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\child\window-child-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\i-marker-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\i-window-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\layer-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\marker-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\markers-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\polylines-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\models\parent\windows-parent-model.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\polyline.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\polylines.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\base-object.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\child-events.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\ctrl_handle.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\events-helper.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\fit-helper.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\gmap-util.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\is-ready.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\linked.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\logger.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\model-key.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\models-watcher.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\prop-map.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\property-action.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\utils\_async.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\window.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\api\windows.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\circle.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\control.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\controllers\polyline-display.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\free-draw-polygons.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\label.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\layer.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\map.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\marker.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\markers.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\polygon.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\polyline.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\polylines.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\rectangle.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\window.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\directives\windows.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\extensions\google.maps.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\extensions\lodash.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\extensions\string.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\module.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\utils\LatLngArraySync.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\coffee\utils\MapEvents.coffee" />
+    <Content Include="app\bower_components\angular-google-maps\src\js\.gitkeep" />
+    <Content Include="app\bower_components\angular-google-maps\src\js\directives\.gitkeep" />
+    <Content Include="app\bower_components\angular-google-maps\src\js\directives\api\managers\.gitkeep" />
+    <Content Include="app\bower_components\angular-google-maps\src\js\directives\api\models\.gitkeep" />
+    <Content Include="app\bower_components\angular-google-maps\src\js\directives\api\utils\.gitkeep" />
+    <Content Include="app\bower_components\lodash\.bower.json" />
+    <Content Include="app\bower_components\lodash\bower.json" />
+    <Content Include="app\bower_components\toastr\.bower.json" />
+    <Content Include="app\bower_components\toastr\bower.json" />
+    <Content Include="app\bower_components\toastr\toastr.less" />
+    <Content Include="app\bower_components\toastr\toastr.min.js.map" />
+    <Content Include="app\bower_components\toastr\toastr.scss" />
+    <None Include="Properties\PublishProfiles\itagspy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Web.AzureDebug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InstaSharp\InstaSharp.csproj">
+      <Project>{cd3ea37a-6c9d-4b74-a2a8-1483259fb1b8}</Project>
+      <Name>InstaSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsAzure\WindowsAzure.csproj">
+      <Project>{0c174c38-3ad7-4810-b165-95dcc327288f}</Project>
+      <Name>WindowsAzure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AzureDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20955</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8629/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:8629/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

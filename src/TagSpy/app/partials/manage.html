@@ -1,0 +1,27 @@
+﻿<!--table for managing subscriptions, maybe use this in tabs?-->
+<div class="row">
+    <div class="col-md-8 col-md-offset-2"   >
+        <table class="table table-hover" title="Places">
+            <thead>
+                <tr>
+                    <th>Subscription</th>
+                    <th>Watch</th>
+                    <th>Delete</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sub in subscriptions">
+                    <td>{{sub.Tag}}</td> <!-- hack, need cleaer logic here-->
+                    <td><button class="glyphicon glyphicon-eye-open" ng-click="setActiveSubscription(sub)"></button></td>
+                    <td><button class="glyphicon glyphicon-trash " ng-click="deleteSubscription($index)"></button></td>
+                    <td><span class="glyphicon glyphicon-flash" id="{{sub.Object_Id}}" ng-show="subActivity[sub.Object_Id]"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- for testing, delete all subs at once-->
+<div class="row">
+    <input type="button" class="btn btn-primary" ng-click="deleteSubscriptions()" value="Delete" />
+</div>

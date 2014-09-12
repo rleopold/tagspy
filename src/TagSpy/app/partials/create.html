@@ -1,0 +1,30 @@
+﻿<p>Create a new subscription</p>
+<div class="row">
+    <div class="col-sm-6 form-group">
+        <input id="rGeo" type="radio" ng-model="isGeo" ng-value="true" />
+        <label for="rGeo">Subscribe to a Place</label><br />
+        <input id="rTag" type="radio" ng-model="isGeo" ng-value="false" />
+        <label for="rTag">Subscribe to a Tag</label>
+        <hr />
+        <div id="geo" ng-show="isGeo">
+            <label for="latitude">Latitude</label>
+            <input id="latitude" type="text" class="form-control" ng-model="sub.latitude" />
+            <label for="longitude">Longitude</label>
+            <input id="longitude" type="text" class="form-control" ng-model="sub.longitude" />
+            <label for="placename">Place Name</label>
+            <input id="placename" type="text" class="form-control" ng-model="sub.tag" required />
+        </div>
+        <div id="tag" ng-hide="isGeo">
+            <label for="tag">Hashtag</label>
+            <input id="tag" type="text" class="form-control" ng-model="sub.tag" />
+        </div>
+        <input type="button" class="btn btn-primary" ng-click="createSubscription(sub)" value="Create" />
+    </div>
+    <div class="col-sm-6">
+        <google-map center="map.center" zoom="map.zoom" events="map.events" draggable="true">
+            <marker coords="map.clickedMarker" idkey="map.clickedMarker.id">
+            </marker>
+        </google-map>
+    </div>
+</div>
+

@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaSharp", "src\InstaSharp\InstaSharp.csproj", "{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagSpy", "src\TagSpy\TagSpy.csproj", "{DC75B69D-434B-4980-A93E-242A36E5D93B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAzure", "src\WindowsAzure\WindowsAzure.csproj", "{0C174C38-3AD7-4810-B165-95DCC327288F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AzureDebug|Any CPU = AzureDebug|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}.AzureDebug|Any CPU.ActiveCfg = AzureDebug|Any CPU
+		{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}.AzureDebug|Any CPU.Build.0 = AzureDebug|Any CPU
+		{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD3EA37A-6C9D-4B74-A2A8-1483259FB1B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC75B69D-434B-4980-A93E-242A36E5D93B}.AzureDebug|Any CPU.ActiveCfg = AzureDebug|Any CPU
+		{DC75B69D-434B-4980-A93E-242A36E5D93B}.AzureDebug|Any CPU.Build.0 = AzureDebug|Any CPU
+		{DC75B69D-434B-4980-A93E-242A36E5D93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC75B69D-434B-4980-A93E-242A36E5D93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC75B69D-434B-4980-A93E-242A36E5D93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC75B69D-434B-4980-A93E-242A36E5D93B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C174C38-3AD7-4810-B165-95DCC327288F}.AzureDebug|Any CPU.ActiveCfg = AzureDebug|Any CPU
+		{0C174C38-3AD7-4810-B165-95DCC327288F}.AzureDebug|Any CPU.Build.0 = AzureDebug|Any CPU
+		{0C174C38-3AD7-4810-B165-95DCC327288F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C174C38-3AD7-4810-B165-95DCC327288F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C174C38-3AD7-4810-B165-95DCC327288F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C174C38-3AD7-4810-B165-95DCC327288F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
